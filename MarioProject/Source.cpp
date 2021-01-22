@@ -59,6 +59,17 @@ bool Update()
 					return true;
 					break;
 			}
+		//Checks if a mouse button has been pressed down
+		case SDL_MOUSEBUTTONDOWN:
+			/*Nested switch checks for which mouse button has been pressed
+			First .button is event data, second .button is button index*/
+			switch (e.button.button)
+			{
+				//If right mouse button has been pressed down
+				case SDL_BUTTON_RIGHT:
+					return true;
+					break;
+			}
 	}
 
 	return false;
