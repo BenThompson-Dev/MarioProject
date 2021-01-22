@@ -12,17 +12,67 @@ SDL_Window* g_window = nullptr; //Pointer
 //Function prototypes
 bool InitSDL();
 void CloseSDL();
+bool Update();
 
 int main(int argc, char* args[])
 {
 	if (InitSDL())
 	{
-		SDL_Delay(5000);
+		//Flag to check if we wish to quit
+		bool quit = false;
+		//Game loop
+		while (!quit)
+		{
+			quit = Update();
+		}
 	}
 
 	CloseSDL();
 
 	return 0;
+}
+
+bool Update()
+{
+	//Event handler, local and will go out of scope at end of Update function
+	SDL_Event e;
+
+	//Get Events
+	//Event variable e passed by reference, so it can be changed in function
+	SDL_PollEvent(&e);
+
+	//Handle the events
+	switch (e.type)
+	{
+		//Click the 'X' to quit
+		//SDL_QUIT is the variable type returned when 'X' is pressed
+		case SDL_QUIT:
+			return true;
+			break;
+		//Checks if key has been pressed down
+		case SDL_KEYUP:
+			//Nested switch statement checks which key has been pressed down
+			switch (e.key.keysym.sym)
+			{
+				//If key is Q
+				case SDLK_q:
+					return true;
+					break;
+			}
+		//Checks if a mouse button has been pressed down
+		case SDL_MOUSEBUTTONDOWN:
+			/*Nested switch checks for which mouse button has been pressed
+			First .button is event data, second .button is button index*/
+			switch (e.button.button)
+			{
+				//If right mouse button has been pressed down
+				case SDL_BUTTON_RIGHT:
+					return true;
+					break;
+			}
+	}
+
+	return false;
 }
 
 bool InitSDL()
