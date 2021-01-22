@@ -49,6 +49,16 @@ bool Update()
 		case SDL_QUIT:
 			return true;
 			break;
+		//Checks if key has been pressed down
+		case SDL_KEYUP:
+			//Nested switch statement checks which key has been pressed down
+			switch (e.key.keysym.sym)
+			{
+				//If key is Q
+				case SDLK_q:
+					return true;
+					break;
+			}
 	}
 
 	return false;
