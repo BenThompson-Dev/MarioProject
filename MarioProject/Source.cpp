@@ -21,6 +21,9 @@ void Render();
 SDL_Texture* LoadTextureFromFile(std::string path);
 void FreeTexture();
 
+SDL_RendererFlip imageFlipped = SDL_FLIP_NONE;
+double imageAngle = 0;
+
 int main(int argc, char* args[])
 {
 	if (InitSDL())
@@ -65,6 +68,19 @@ bool Update()
 				//If key is Q
 				case SDLK_q:
 					return true;
+					break;
+				case SDLK_a:
+					if (imageFlipped == SDL_FLIP_NONE)
+					{
+						imageFlipped = SDL_FLIP_HORIZONTAL;
+					}
+					else
+					{
+						imageFlipped = SDL_FLIP_NONE;
+					}
+					break;
+				case SDLK_s:
+					imageAngle += 10;
 					break;
 			}
 		//Checks if a mouse button has been pressed down
@@ -167,7 +183,7 @@ void Render()
 	SDL_Rect renderLocation = { 0,0,SCREEN_WIDTH,SCREEN_HEIGHT }; //SDL_Rect holds locational data
 
 	//Render to the screen
-	SDL_RenderCopyEx(g_renderer, g_texture, NULL, &renderLocation, 0, NULL, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(g_renderer, g_texture, NULL, &renderLocation, imageAngle, NULL, imageFlipped);
 	/*SDL_RenderCopyEx allows you to set different flags. Parameters are:
 	the renderer, the texture, a source rect, a destination rect, an angle,
 	an SDL_Point for the centre of the texture and an SDL_RendererFlip flag (image flip)*/
