@@ -1,3 +1,5 @@
 ﻿  Source.cpp
-C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(137): warning C4715: 'InitSDL': not all control paths return a value
+  Texture2D.cpp
+  Generating Code...
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(140): warning C4715: 'InitSDL': not all control paths return a value
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe
