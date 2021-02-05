@@ -5,14 +5,17 @@
 //File references
 #include "GameScreen.h" //includes SDL.h as it is included in GameScreen.h
 #include "Commons.h"
+#include "Character.h"
 
 class Texture2D; //Forward declaration of class
+class Character;
 
 class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 {
 	private:
 		Texture2D* m_background_texture; //Reference to Texture2D, can be used because of forward declaration
 		bool SetUpLevel(); //private function only used by this class
+		Character* my_character; //Reference to character
 	public:
 		GameScreenLevel1(SDL_Renderer* renderer);
 		~GameScreenLevel1();

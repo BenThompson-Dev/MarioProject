@@ -14,6 +14,8 @@ protected:
 	SDL_Renderer* m_renderer;
 	Vector2D m_position;
 	Texture2D* m_texture;
+private:
+	FACING m_facing_direction;
 public:
 	Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position);
 	~Character();
