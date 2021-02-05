@@ -13,8 +13,9 @@
 //Globals
 SDL_Window* g_window = nullptr; //Pointer
 SDL_Renderer* g_renderer = nullptr; //Renderer pointer
-Texture2D* g_texture = nullptr;
-GameScreenManager* game_screen_manager;
+GameScreenManager* game_screen_manager; //GameScreenManager pointer
+
+Uint32 g_old_time; //Delta time reference
 
 //Function prototypes
 bool InitSDL();
@@ -29,6 +30,10 @@ int main(int argc, char* args[])
 {
 	if (InitSDL())
 	{
+		game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
+		//Sets the time
+		g_old_time = SDL_GetTicks();
+
 		//Flag to check if we wish to quit
 		bool quit = false;
 		//Game loop
@@ -46,6 +51,8 @@ int main(int argc, char* args[])
 
 bool Update()
 {
+	Uint32 new_time = SDL_GetTicks();
+
 	//Event handler, local and will go out of scope at end of Update function
 	SDL_Event e;
 
@@ -83,6 +90,11 @@ bool Update()
 					break;
 			}
 	}
+	//Runs game screen manager update
+	game_screen_manager->Update((float)(new_time - g_old_time) / 1000.0f, e);
+
+	//Changes time
+	g_old_time = new_time;
 
 	return false;
 }
@@ -126,13 +138,6 @@ bool InitSDL()
 			std::cout << "SDL_Image could not initialise. Error: " << IMG_GetError();
 			return false;
 		}
-
-		//Loads the background texture
-		g_texture = new Texture2D(g_renderer);
-		if (!g_texture->LoadFromFile("Images/test.bmp"))
-		{
-			return false;
-		}
 	}
 	else
 	{
@@ -159,9 +164,9 @@ void CloseSDL()
 	It is known as a dangling pointer, if not reassigned it will hold an
 	invalid address and crash the program*/
 
-	//Release the texture
-	delete g_texture;
-	g_texture = nullptr;
+	//Destroys the game screen manager
+	delete game_screen_manager;
+	game_screen_manager = nullptr;
 }
 
 void Render()
@@ -169,8 +174,8 @@ void Render()
 	//Clear the screen
 	SDL_SetRenderDrawColor(g_renderer, 0xFF, 0xFF, 0xFF, 0xFF); //Sets colour for renderer
 	SDL_RenderClear(g_renderer); //Clears window
-
-	g_texture->Render(Vector2D(), SDL_FLIP_NONE);
+	
+	game_screen_manager->Render();
 
 	//Update the screen
 	SDL_RenderPresent(g_renderer);
