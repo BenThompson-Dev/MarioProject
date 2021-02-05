@@ -1,5 +1,6 @@
 #include "Character.h"
 #include "Texture2D.h"
+#include "constants.h"
 
 Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position)
 {
@@ -36,6 +37,18 @@ void Character::Render()
 
 void Character::Update(float deltaTime, SDL_Event e)
 {
+	if (m_jumping)
+	{
+		m_position.y -= deltaTime * m_jump_force;
+		//Reduces the jump force
+		m_jump_force -= deltaTime * JUMP_FORCE_DECREMENT;
+		if (m_jump_force <= 0.0f)
+			m_jumping = false;
+	}
+
+	//Runs gravity script
+	AddGravity(deltaTime);
+
 	if (m_moving_left)
 	{
 		MoveLeft(deltaTime);
@@ -56,6 +69,11 @@ void Character::Update(float deltaTime, SDL_Event e)
 		case SDLK_RIGHT:
 			m_moving_right = true;
 			break;
+		case SDLK_SPACE:
+			if (m_can_jump == true)
+			{
+				Jump(deltaTime);
+			}
 		}
 		break;
 	case SDL_KEYUP:
@@ -84,12 +102,33 @@ Vector2D Character::GetPosition()
 
 void Character::MoveLeft(float deltaTime)
 {
-	m_position.x -= 1;
+	m_position.x -= deltaTime * MOVEMENT_SPEED;
 	m_facing_direction = FACING_LEFT;
 }
 
 void Character::MoveRight(float deltaTime)
 {
-	m_position.x += 1;
+	m_position.x += deltaTime * MOVEMENT_SPEED;
 	m_facing_direction = FACING_RIGHT;
+}
+
+void Character::AddGravity(float deltaTime)
+{
+	//Mario sprite height
+	if (m_position.y + CHARACTER_SIZE <= SCREEN_HEIGHT)
+	{
+		m_position.y += deltaTime * GRAVITY;
+	}
+	else
+	{
+		m_can_jump = true;
+		m_jumping = false;
+	}
+}
+
+void Character::Jump(float deltaTime)
+{
+	m_jump_force = INITIAL_JUMP_FORCE;
+	m_jumping = true;
+	m_can_jump = false;
 }

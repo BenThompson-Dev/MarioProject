@@ -16,9 +16,15 @@ protected:
 	Texture2D* m_texture;
 	bool m_moving_left;
 	bool m_moving_right;
+	//Jump variables
+	bool m_jumping;
+	bool m_can_jump;
+	float m_jump_force;
 	//Protected functions
 	virtual void MoveLeft(float deltaTime);
 	virtual void MoveRight(float deltaTime);
+	virtual void Jump(float deltaTime);
+	virtual void AddGravity(float deltaTime);
 private:
 	FACING m_facing_direction;
 public:
