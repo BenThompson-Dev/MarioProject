@@ -14,6 +14,11 @@ protected:
 	SDL_Renderer* m_renderer;
 	Vector2D m_position;
 	Texture2D* m_texture;
+	bool m_moving_left;
+	bool m_moving_right;
+	//Protected functions
+	virtual void MoveLeft(float deltaTime);
+	virtual void MoveRight(float deltaTime);
 private:
 	FACING m_facing_direction;
 public:
