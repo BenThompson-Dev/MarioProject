@@ -8,11 +8,13 @@
 #include "constants.h"
 #include "Texture2D.h"
 #include "Commons.h"
+#include "GameScreenManager.h"
 
 //Globals
 SDL_Window* g_window = nullptr; //Pointer
 SDL_Renderer* g_renderer = nullptr; //Renderer pointer
 Texture2D* g_texture = nullptr;
+GameScreenManager* game_screen_manager;
 
 //Function prototypes
 bool InitSDL();
