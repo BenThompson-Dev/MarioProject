@@ -8,7 +8,8 @@
 #include "Character.h"
 
 class Texture2D; //Forward declaration of class
-class Character;
+class CharacterMario; //Declares mario and luigi classes
+class CharacterLuigi;
 
 class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 {
