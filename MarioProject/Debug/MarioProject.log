@@ -1,2 +1,6 @@
-﻿  Character.cpp
+﻿  CharacterMario.cpp
+  GameScreenLevel1.cpp
+  GameScreenManager.cpp
+  Generating Code...
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(50): warning C4715: 'GameScreenLevel1::SetUpLevel': not all control paths return a value
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe

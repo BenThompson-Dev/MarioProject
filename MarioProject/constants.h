@@ -9,4 +9,4 @@
 #define JUMP_FORCE_DECREMENT 400.0f
 #define GRAVITY 260.0f
 //Height of character sprite
-#define CHARACTER_SIZE 32
+#define CHARACTER_SIZE 64

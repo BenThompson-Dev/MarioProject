@@ -6,6 +6,7 @@ Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D sta
 {
 	m_renderer = renderer;
 	m_position = start_position;
+	m_image = imagePath;
 	m_facing_direction = FACING_RIGHT; //Changes mario's direction to facing right (default image direction)
 	//Load texture
 	m_texture = new Texture2D(m_renderer);
@@ -57,37 +58,6 @@ void Character::Update(float deltaTime, SDL_Event e)
 	{
 		MoveRight(deltaTime);
 	}
-
-	switch (e.type)
-	{
-	case SDL_KEYDOWN:
-		switch (e.key.keysym.sym)
-		{
-		case SDLK_LEFT:
-			m_moving_left = true;
-			break;
-		case SDLK_RIGHT:
-			m_moving_right = true;
-			break;
-		case SDLK_SPACE:
-			if (m_can_jump == true)
-			{
-				Jump(deltaTime);
-			}
-		}
-		break;
-	case SDL_KEYUP:
-		switch (e.key.keysym.sym)
-		{
-		case SDLK_LEFT:
-			m_moving_left = false;
-			break;
-		case SDLK_RIGHT:
-			m_moving_right = false;
-			break;
-		}
-		break;
-	}
 }
 
 void Character::SetPosition(Vector2D new_position)
@@ -103,13 +73,19 @@ Vector2D Character::GetPosition()
 void Character::MoveLeft(float deltaTime)
 {
 	m_position.x -= deltaTime * MOVEMENT_SPEED;
-	m_facing_direction = FACING_LEFT;
+	if (m_image == "Images/Mario.png")
+		m_facing_direction = FACING_LEFT;
+	else
+		m_facing_direction = FACING_RIGHT;
 }
 
 void Character::MoveRight(float deltaTime)
 {
 	m_position.x += deltaTime * MOVEMENT_SPEED;
-	m_facing_direction = FACING_RIGHT;
+	if (m_image == "Images/Mario.png")
+		m_facing_direction = FACING_RIGHT;
+	else
+		m_facing_direction = FACING_LEFT;
 }
 
 void Character::AddGravity(float deltaTime)

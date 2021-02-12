@@ -4,6 +4,7 @@
 
 #include <SDL.h>
 #include <iostream>
+#include <string>
 #include "Commons.h"
 
 class Texture2D; //Forward declares Texture2D
@@ -14,6 +15,7 @@ protected:
 	SDL_Renderer* m_renderer;
 	Vector2D m_position;
 	Texture2D* m_texture;
+	std::string m_image;
 	bool m_moving_left;
 	bool m_moving_right;
 	//Jump variables
