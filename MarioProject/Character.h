@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include "Commons.h"
+#include "Texture2D.h"
 
 class Texture2D; //Forward declares Texture2D
 
@@ -27,6 +28,8 @@ protected:
 	virtual void MoveRight(float deltaTime);
 	virtual void Jump(float deltaTime);
 	virtual void AddGravity(float deltaTime);
+	//Collision variable
+	float m_collision_radius;
 private:
 	FACING m_facing_direction;
 public:
@@ -37,6 +40,13 @@ public:
 	virtual void Update(float deltaTime, SDL_Event e);
 	void SetPosition(Vector2D new_position);
 	Vector2D GetPosition();
+	//Functions for getting collision size
+	float GetCollisionRadius();
+	//Created as an inline function as it is only returning a struct in the header
+	Rect2D GetCollisionBox()
+	{
+		return Rect2D(m_position.x, m_position.y, m_texture->GetWidth(), m_texture->GetHeight());
+	}
 };
 
 #endif //_CHARACTER_H

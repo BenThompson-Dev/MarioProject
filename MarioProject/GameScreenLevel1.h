@@ -15,8 +15,8 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 	private:
 		Texture2D* m_background_texture; //Reference to Texture2D, can be used because of forward declaration
 		bool SetUpLevel(); //private function only used by this class
-		Character* my_character_mario; //Character references
-		Character* my_character_luigi;
+		Character* mario; //Character references
+		Character* luigi;
 	public:
 		GameScreenLevel1(SDL_Renderer* renderer);
 		~GameScreenLevel1();
