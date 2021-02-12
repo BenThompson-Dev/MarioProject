@@ -1,6 +1,21 @@
-﻿  CharacterMario.cpp
+﻿  Character.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterLuigi.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterMario.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Collisions.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameScreenLevel1.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameScreenManager.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(48,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating Code...
-C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(50): warning C4715: 'GameScreenLevel1::SetUpLevel': not all control paths return a value
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(60): warning C4715: 'GameScreenLevel1::SetUpLevel': not all control paths return a value
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe

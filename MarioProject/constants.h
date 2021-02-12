@@ -10,3 +10,5 @@
 #define GRAVITY 260.0f
 //Height of character sprite
 #define CHARACTER_SIZE 64
+//Character collision radius
+#define CHAR_COLLISION_RADIUS 15.0f

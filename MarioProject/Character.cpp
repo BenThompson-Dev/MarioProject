@@ -17,6 +17,9 @@ Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D sta
 	//No movement at the start of the game
 	m_moving_left = false;
 	m_moving_right = false;
+
+	//Sets radius of collision
+	m_collision_radius = CHAR_COLLISION_RADIUS;
 }
 
 Character::~Character()
@@ -107,4 +110,9 @@ void Character::Jump(float deltaTime)
 	m_jump_force = INITIAL_JUMP_FORCE;
 	m_jumping = true;
 	m_can_jump = false;
+}
+
+float Character::GetCollisionRadius()
+{
+	return m_collision_radius;
 }
