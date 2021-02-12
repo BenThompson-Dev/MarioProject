@@ -26,3 +26,9 @@ enum SCREENS //Enum for the different screen types
 	SCREEN_GAMEOVER,
 	SCREEN_HIGHSCORES
 };
+
+enum FACING //Controls direction the character is facing
+{
+	FACING_LEFT,
+	FACING_RIGHT
+};
