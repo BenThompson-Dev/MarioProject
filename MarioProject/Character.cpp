@@ -2,7 +2,7 @@
 #include "Texture2D.h"
 #include "constants.h"
 
-Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position)
+Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map)
 {
 	m_renderer = renderer;
 	m_position = start_position;
@@ -20,6 +20,8 @@ Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D sta
 
 	//Sets radius of collision
 	m_collision_radius = CHAR_COLLISION_RADIUS;
+
+	m_current_level_map = map;
 }
 
 Character::~Character()
@@ -50,8 +52,20 @@ void Character::Update(float deltaTime, SDL_Event e)
 			m_jumping = false;
 	}
 
-	//Runs gravity script
-	AddGravity(deltaTime);
+	//Collision position variables
+	int centralX_position = (int)(m_position.x + (m_texture->GetWidth() * 0.5)) / TILE_WIDTH;
+	int foot_position = (int)(m_position.y + m_texture->GetHeight()) / TILE_HEIGHT;
+
+	//Check if gravity should be applied
+	if (m_current_level_map->GetTileAt(foot_position, centralX_position) == 0)
+	{
+		AddGravity(deltaTime);
+	}
+	else
+	{
+		//Collided with ground, so player can jump again
+		m_can_jump = true;
+	}
 
 	if (m_moving_left)
 	{
