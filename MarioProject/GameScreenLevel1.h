@@ -7,6 +7,7 @@
 #include "Commons.h"
 #include "CharacterMario.h"
 #include "CharacterLuigi.h"
+#include "LevelMap.h";
 
 class Texture2D; //Forward declaration of class
 
@@ -17,6 +18,9 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 		bool SetUpLevel(); //private function only used by this class
 		Character* mario; //Character references
 		Character* luigi;
+		LevelMap* m_level_map;
+
+		void SetLevelMap();
 	public:
 		GameScreenLevel1(SDL_Renderer* renderer);
 		~GameScreenLevel1();
