@@ -1,6 +1,27 @@
-﻿  GameScreenLevel1.cpp
+﻿  Character.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterLuigi.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterMario.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Collisions.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameScreenLevel1.cpp
 C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.h(10,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  GameScreenManager.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(51,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.h(10,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  LevelMap.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(51,22): warning C4553: '==': result of expression not used; did you intend '='?
+  Source.cpp
+  Generating Code...
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(147): warning C4715: 'InitSDL': not all control paths return a value
 C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(63): warning C4715: 'GameScreenLevel1::SetUpLevel': not all control paths return a value
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe

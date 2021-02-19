@@ -67,6 +67,7 @@ void Character::Update(float deltaTime, SDL_Event e)
 		m_can_jump = true;
 	}
 
+	//Left/right movement check
 	if (m_moving_left)
 	{
 		MoveLeft(deltaTime);
