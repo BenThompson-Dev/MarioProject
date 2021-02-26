@@ -52,6 +52,7 @@ void POWBlock::Render()
 void POWBlock::TakeHit()
 {
 	m_num_hits_left--;
+
 	if (m_num_hits_left <= 0)
 	{
 		m_num_hits_left = 0;

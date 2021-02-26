@@ -1,6 +1,7 @@
 #include "GameScreenLevel1.h"
 #include "Texture2D.h"
 #include "Collisions.h"
+#include "POWBlock.h"
 #include <iostream>
 
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer) //Inherits from GameScreen
@@ -17,6 +18,8 @@ GameScreenLevel1::~GameScreenLevel1()
 	mario = nullptr;
 	delete luigi;
 	luigi = nullptr;
+	delete m_pow_block;
+	m_pow_block = nullptr;
 }
 
 void GameScreenLevel1::Render()
@@ -27,12 +30,16 @@ void GameScreenLevel1::Render()
 
 	mario->Render();
 	luigi->Render();
+	m_pow_block->Render();
 }
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {
 	//Update characters
 	mario->Update(deltaTime, e);
 	luigi->Update(deltaTime, e);
+
+	UpdatePOWBlock();
+
 	//Checks for the different collision types
 	if (Collisions::Instance()->Circle(mario, luigi))
 	{
@@ -41,6 +48,23 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	if (Collisions::Instance()->Box(mario->GetCollisionBox(), luigi->GetCollisionBox()))
 	{
 		std::cout << "Box hit!" << std::endl;
+	}
+}
+
+void GameScreenLevel1::UpdatePOWBlock()
+{
+	if (Collisions::Instance()->Box(mario->GetCollisionBox(), m_pow_block->GetCollisionBox()))
+	{
+		if (m_pow_block->IsAvailable() > 0)
+		{
+			//Collided while jumping
+			if (mario->IsJumping())
+			{
+				//DoScreenShake();
+				m_pow_block->TakeHit();
+				mario->CancelJump();
+			}
+		}
 	}
 }
 
@@ -60,6 +84,9 @@ bool GameScreenLevel1::SetUpLevel()
 	mario = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map);
 	//Set up luigi character
 	luigi = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(406, 330), m_level_map);
+
+	//Set up pow block
+	m_pow_block = new POWBlock(m_renderer, m_level_map);
 }
 
 void GameScreenLevel1::SetLevelMap()
