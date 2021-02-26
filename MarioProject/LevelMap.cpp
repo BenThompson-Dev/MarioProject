@@ -45,9 +45,5 @@ int LevelMap::GetTileAt(unsigned int h, unsigned int w)
 
 void LevelMap::ChangeTileAt(unsigned int row, unsigned int column, unsigned int new_value)
 {
-	//Changes the value of the selected tile to the new value after check
-	if (m_map[row][column] != new_value)
-	{
-		m_map[row][column] == new_value;
-	}
+	m_map[row][column] = new_value;
 }

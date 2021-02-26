@@ -10,23 +10,32 @@
 #include "LevelMap.h";
 
 class Texture2D; //Forward declaration of class
+class POWBlock;
 
 class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 {
 	private:
 		Texture2D* m_background_texture; //Reference to Texture2D, can be used because of forward declaration
-		bool SetUpLevel(); //private function only used by this class
 		Character* mario; //Character references
 		Character* luigi;
 		LevelMap* m_level_map;
+		POWBlock* m_pow_block;
 
+		bool m_screenshake;
+		float m_shake_time;
+		float m_wobble;
+		float m_background_yPos;
+
+		bool SetUpLevel(); //private function only used by this class
 		void SetLevelMap();
+		void DoScreenShake();
 	public:
 		GameScreenLevel1(SDL_Renderer* renderer);
 		~GameScreenLevel1();
 
 		void Render() override; //override is optional but good practice to understand the code better
 		void Update(float deltaTime, SDL_Event e) override;
+		void UpdatePOWBlock();
 };
 
 #endif //_GAMESCREENLEVEL1_H

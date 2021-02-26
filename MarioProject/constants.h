@@ -24,3 +24,6 @@
 
 //Character collision radius
 #define CHAR_COLLISION_RADIUS 15.0f
+
+//Duration of POW Block screen shake
+#define SHAKE_DURATION 0.25f
