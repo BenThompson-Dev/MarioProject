@@ -24,13 +24,15 @@ protected:
 	bool m_jumping;
 	bool m_can_jump;
 	float m_jump_force;
+	//Collision variable
+	float m_collision_radius;
+	bool m_alive;
+
 	//Protected functions
 	virtual void MoveLeft(float deltaTime);
 	virtual void MoveRight(float deltaTime);
 	virtual void Jump(float deltaTime);
 	virtual void AddGravity(float deltaTime);
-	//Collision variable
-	float m_collision_radius;
 private:
 	FACING m_facing_direction;
 	//Stores the current LevelMap pointer
@@ -58,6 +60,13 @@ public:
 		m_jumping = false;
 		m_jump_force = 0.0f;
 	}
+
+	void SetAlive(bool isAlive)
+	{
+		m_alive = isAlive;
+	}
+
+	bool GetAlive() { return m_alive; }
 };
 
 #endif //_CHARACTER_H

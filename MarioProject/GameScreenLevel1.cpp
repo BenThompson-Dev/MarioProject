@@ -2,7 +2,7 @@
 #include "Texture2D.h"
 #include "Collisions.h"
 #include "POWBlock.h"
-#include <iostream>
+#include <vector>
 
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer) //Inherits from GameScreen
 {
@@ -20,10 +20,23 @@ GameScreenLevel1::~GameScreenLevel1()
 	luigi = nullptr;
 	delete m_pow_block;
 	m_pow_block = nullptr;
+
+	m_enemies.clear();
 }
 
 void GameScreenLevel1::Render()
 {
+	//Draws black background image first
+	m_background_colour->Render(Vector2D(0, 0), SDL_FLIP_NONE);
+	//Doesn't use m_background_yPos as it is just the background colour, it doesn't need to move with the screen shake
+
+	//Draw the enemies
+	//Drawn before background so they can 'come out' of the pipes
+	for (int i = 0; i < m_enemies.size(); i++)
+	{
+		m_enemies[i]->Render();
+	}
+
 	//Draw the background
 	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE); //Calls the Texture2D pointer's Render function
 	//m_background_texture is set to be a reference to the Texture2D class
@@ -56,6 +69,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	luigi->Update(deltaTime, e);
 
 	UpdatePOWBlock();
+	UpdateEnemies(deltaTime, e);
 
 	//Checks for the different collision types
 	if (Collisions::Instance()->Circle(mario, luigi))
@@ -87,9 +101,16 @@ void GameScreenLevel1::UpdatePOWBlock()
 
 bool GameScreenLevel1::SetUpLevel()
 {
+	m_background_colour = new Texture2D(m_renderer);
+	if (!m_background_colour->LoadFromFile("Images/Black.png"))
+	{
+		std::cout << "Failed to load background colour texture!" << std::endl;
+		return false;
+	}
+
 	//Load texture
 	m_background_texture = new Texture2D(m_renderer);
-	if (!m_background_texture->LoadFromFile("Images/BackgroundMBChanged.png"))
+	if (!m_background_texture->LoadFromFile("Images/BackgroundMB.png"))
 	{
 		std::cout << "Failed to load background texture!" << std::endl;
 		return false;
@@ -106,6 +127,9 @@ bool GameScreenLevel1::SetUpLevel()
 	m_pow_block = new POWBlock(m_renderer, m_level_map);
 	m_screenshake = false;
 	m_background_yPos = 0.0f;
+
+	CreateKoopa(Vector2D(150, 32), FACING_RIGHT, KOOPA_SPEED);
+	CreateKoopa(Vector2D(325, 32), FACING_LEFT, KOOPA_SPEED);
 }
 
 void GameScreenLevel1::SetLevelMap()
@@ -139,4 +163,71 @@ void GameScreenLevel1::DoScreenShake()
 	m_screenshake = true;
 	m_shake_time = SHAKE_DURATION;
 	m_wobble = 0.0f;
+
+	for (unsigned int i = 0; i < m_enemies.size(); i++)
+	{
+		m_enemies[i]->TakeDamage();
+	}
+}
+
+void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
+{
+	if (!m_enemies.empty())
+	{
+		int enemyIndexToDelete = -1;
+		for (unsigned int i = 0; i < m_enemies.size(); i++)
+		{
+			//Check if the enemy is on the bottom row of tiles
+			if (m_enemies[i]->GetPosition().y > 300.0f)
+			{
+				//Is the enemy off screen to the left / right?
+				if (m_enemies[i]->GetPosition().x < (float)(-m_enemies[i]->GetCollisionBox().width * 0.5f) ||
+					m_enemies[i]->GetPosition().x > SCREEN_WIDTH - (float)(m_enemies[i]->GetCollisionBox().width * 0.55f))
+				{
+					m_enemies[i]->SetAlive(false);
+				}
+			}
+			//Now do the update
+			m_enemies[i]->Update(deltaTime, e);
+
+			//Check to see if enemy collides with player
+			if ((m_enemies[i]->GetPosition().y > 300.0f || m_enemies[i]->GetPosition().y <= 64.0f) &&
+				(m_enemies[i]->GetPosition().x < 64.0f || m_enemies[i]->GetPosition().x > SCREEN_WIDTH - 96.0f))
+			{
+				//Ignore collisions if behind pipe
+			}
+			else
+			{
+				if (Collisions::Instance()->Circle(m_enemies[i], mario))
+				{
+					if (m_enemies[i]->GetInjured())
+					{
+						m_enemies[i]->SetAlive(false);
+					}
+					else
+					{
+						//Kill mario
+					}
+				}
+			}
+			
+			//If the enemy is no longer alive then schedule it for deletion
+			if (!m_enemies[i]->GetAlive())
+			{
+				enemyIndexToDelete = i;
+			}
+		}
+
+		//Remove dead enemies -1 each update
+		if (enemyIndexToDelete != -1)
+		{
+			m_enemies.erase(m_enemies.begin() + enemyIndexToDelete);
+		}
+	}
+}
+
+void GameScreenLevel1::CreateKoopa(Vector2D position, FACING direction, float speed)
+{
+	koopa = new CharacterKoopa(m_renderer, "Images/Koopa.png", m_level_map, Vector2D(position.x, position.y), direction, speed);
+	m_enemies.push_back(koopa);
 }

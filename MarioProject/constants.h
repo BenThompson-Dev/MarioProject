@@ -27,3 +27,10 @@
 
 //Duration of POW Block screen shake
 #define SHAKE_DURATION 0.25f
+
+//Koopa injured time
+#define INJURED_TIME 2.5f
+//Koopa jump force
+#define INITIAL_JUMP_FORCE_SMALL 200.0f
+//Koopa speed
+#define KOOPA_SPEED 96.0f
