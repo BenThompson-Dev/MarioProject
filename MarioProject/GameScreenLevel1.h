@@ -21,8 +21,14 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 		LevelMap* m_level_map;
 		POWBlock* m_pow_block;
 
+		bool m_screenshake;
+		float m_shake_time;
+		float m_wobble;
+		float m_background_yPos;
+
 		bool SetUpLevel(); //private function only used by this class
 		void SetLevelMap();
+		void DoScreenShake();
 	public:
 		GameScreenLevel1(SDL_Renderer* renderer);
 		~GameScreenLevel1();

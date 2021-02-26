@@ -25,7 +25,7 @@ GameScreenLevel1::~GameScreenLevel1()
 void GameScreenLevel1::Render()
 {
 	//Draw the background
-	m_background_texture->Render(Vector2D(), SDL_FLIP_NONE); //Calls the Texture2D pointer's Render function
+	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE); //Calls the Texture2D pointer's Render function
 	//m_background_texture is set to be a reference to the Texture2D class
 
 	mario->Render();
@@ -34,6 +34,23 @@ void GameScreenLevel1::Render()
 }
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {
+	/*
+	 *	Do the screen shake if required
+	 */
+	if (m_screenshake)
+	{
+		m_shake_time -= deltaTime;
+		m_wobble++;
+		m_background_yPos = sin(m_wobble);
+		m_background_yPos *= 3.0f;
+		//End shake after duration
+		if (m_shake_time <= 0.0f)
+		{
+			m_screenshake = false;
+			m_background_yPos = 0.0f;
+		}
+	}
+
 	//Update characters
 	mario->Update(deltaTime, e);
 	luigi->Update(deltaTime, e);
@@ -60,7 +77,7 @@ void GameScreenLevel1::UpdatePOWBlock()
 			//Collided while jumping
 			if (mario->IsJumping())
 			{
-				//DoScreenShake();
+				DoScreenShake();
 				m_pow_block->TakeHit();
 				mario->CancelJump();
 			}
@@ -87,6 +104,8 @@ bool GameScreenLevel1::SetUpLevel()
 
 	//Set up pow block
 	m_pow_block = new POWBlock(m_renderer, m_level_map);
+	m_screenshake = false;
+	m_background_yPos = 0.0f;
 }
 
 void GameScreenLevel1::SetLevelMap()
@@ -113,4 +132,11 @@ void GameScreenLevel1::SetLevelMap()
 	}
 	//Sets the new map
 	m_level_map = new LevelMap(map);
+}
+
+void GameScreenLevel1::DoScreenShake()
+{
+	m_screenshake = true;
+	m_shake_time = SHAKE_DURATION;
+	m_wobble = 0.0f;
 }
