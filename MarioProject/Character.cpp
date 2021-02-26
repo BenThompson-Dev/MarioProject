@@ -12,7 +12,7 @@ Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D sta
 	m_texture = new Texture2D(m_renderer);
 	if (!m_texture->LoadFromFile(imagePath))
 	{
-		std::cout << "Failed to load background texture!" << std::endl;
+		std::cout << "Failed to load texture!" << std::endl;
 	}
 	//No movement at the start of the game
 	m_moving_left = false;
@@ -22,6 +22,7 @@ Character::Character(SDL_Renderer* renderer, std::string imagePath, Vector2D sta
 	m_collision_radius = CHAR_COLLISION_RADIUS;
 
 	m_current_level_map = map;
+	m_alive = true;
 }
 
 Character::~Character()
