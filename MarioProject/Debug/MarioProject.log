@@ -3,6 +3,7 @@ C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warnin
 C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(35,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(89,37): warning C4804: '>': unsafe use of type 'bool' in operation
-C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(133): warning C4715: 'GameScreenLevel1::SetUpLevel': not all control paths return a value
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(103,37): warning C4804: '>': unsafe use of type 'bool' in operation
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(117,37): warning C4804: '>': unsafe use of type 'bool' in operation
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(157): warning C4715: 'GameScreenLevel1::SetUpLevel': not all control paths return a value
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe

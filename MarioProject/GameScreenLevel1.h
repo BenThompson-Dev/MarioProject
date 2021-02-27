@@ -30,6 +30,8 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 		float m_wobble;
 		float m_background_yPos;
 
+		float enemyRespawnCounter = 0;
+
 		std::vector<CharacterKoopa*> m_enemies;
 
 		bool SetUpLevel(); //private function only used by this class

@@ -34,3 +34,5 @@
 #define INITIAL_JUMP_FORCE_SMALL 200.0f
 //Koopa speed
 #define KOOPA_SPEED 96.0f
+//Koopa respawn time
+#define ENEMY_RESPAWN_TIME 7.5f

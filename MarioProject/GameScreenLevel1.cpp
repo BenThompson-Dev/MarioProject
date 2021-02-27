@@ -64,6 +64,20 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 		}
 	}
 
+	//Check to see if new enemies need to be respawned
+	if (enemyRespawnCounter <= 0)
+	{
+		CreateKoopa(Vector2D(0, 32), FACING_RIGHT, KOOPA_SPEED);
+		CreateKoopa(Vector2D(SCREEN_WIDTH-50, 32), FACING_LEFT, KOOPA_SPEED);
+		//Screen Size - buffer value, stops them from falling onto the below platform
+
+		enemyRespawnCounter = ENEMY_RESPAWN_TIME;
+	}
+	else
+	{
+		enemyRespawnCounter -= deltaTime;
+	}
+
 	//Update characters
 	mario->Update(deltaTime, e);
 	luigi->Update(deltaTime, e);
@@ -71,7 +85,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	UpdatePOWBlock();
 	UpdateEnemies(deltaTime, e);
 
-	//Checks for the different collision types
+	/*Checks for the different collision types
 	if (Collisions::Instance()->Circle(mario, luigi))
 	{
 		std::cout << "Circle hit!" << std::endl;
@@ -79,7 +93,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	if (Collisions::Instance()->Box(mario->GetCollisionBox(), luigi->GetCollisionBox()))
 	{
 		std::cout << "Box hit!" << std::endl;
-	}
+	}*/
 }
 
 void GameScreenLevel1::UpdatePOWBlock()
@@ -94,6 +108,19 @@ void GameScreenLevel1::UpdatePOWBlock()
 				DoScreenShake();
 				m_pow_block->TakeHit();
 				mario->CancelJump();
+			}
+		}
+	}
+	//Alternate check to see if Luigi is colliding with the POW Block
+	if (Collisions::Instance()->Box(luigi->GetCollisionBox(), m_pow_block->GetCollisionBox()))
+	{
+		if (m_pow_block->IsAvailable() > 0)
+		{
+			if (luigi->IsJumping())
+			{
+				DoScreenShake();
+				m_pow_block->TakeHit();
+				luigi->CancelJump();
 			}
 		}
 	}
@@ -127,9 +154,6 @@ bool GameScreenLevel1::SetUpLevel()
 	m_pow_block = new POWBlock(m_renderer, m_level_map);
 	m_screenshake = false;
 	m_background_yPos = 0.0f;
-
-	CreateKoopa(Vector2D(150, 32), FACING_RIGHT, KOOPA_SPEED);
-	CreateKoopa(Vector2D(325, 32), FACING_LEFT, KOOPA_SPEED);
 }
 
 void GameScreenLevel1::SetLevelMap()
@@ -172,6 +196,8 @@ void GameScreenLevel1::DoScreenShake()
 
 void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 {
+	std::cout << m_enemies.size() << std::endl;
+
 	if (!m_enemies.empty())
 	{
 		int enemyIndexToDelete = -1;
@@ -207,6 +233,17 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 					else
 					{
 						//Kill mario
+					}
+				}
+				else if (Collisions::Instance()->Circle(m_enemies[i], luigi))
+				{
+					if (m_enemies[i]->GetInjured())
+					{
+						m_enemies[i]->SetAlive(false);
+					}
+					else
+					{
+						//Kill luigi
 					}
 				}
 			}
