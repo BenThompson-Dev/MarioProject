@@ -3,7 +3,7 @@
 #define SCREEN_WIDTH 512
 #define SCREEN_HEIGHT 416
 
-//Map Width and Height
+//Map Width and Height (in tiles)
 #define MAP_WIDTH 16
 #define MAP_HEIGHT 13
 
@@ -11,7 +11,7 @@
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 32
 
-//Amount of pixels moved over a second
+//Movement speeds
 #define MOVEMENT_SPEED 75.0f
 #define INITIAL_JUMP_FORCE 600.0f
 
@@ -36,3 +36,11 @@
 #define KOOPA_SPEED 96.0f
 //Koopa respawn time
 #define ENEMY_RESPAWN_TIME 7.5f
+
+//Delay between each frame of animation
+#define ANIMATION_DELAY 0.10f
+
+//Coin speed
+#define COIN_SPEED 120.0f
+//Coin respawn delay (offsets the coins to the enemy spawning)
+#define COIN_RESPAWN_DELAY 3.0f

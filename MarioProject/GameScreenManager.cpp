@@ -17,9 +17,9 @@ GameScreenManager::~GameScreenManager()
 	m_current_screen = nullptr;
 }
 
-void GameScreenManager::Render()
+void GameScreenManager::Render(float deltaTime)
 {
-	m_current_screen->Render();
+	m_current_screen->Render(deltaTime);
 }
 
 void GameScreenManager::Update(float deltaTime, SDL_Event e)

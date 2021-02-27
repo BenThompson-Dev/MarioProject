@@ -3,12 +3,14 @@
 #define _GAMESCREENLEVEL1_H
 
 //File references
-#include "GameScreen.h" //includes SDL.h as it is included in GameScreen.h
+#include "GameScreen.h" //SDL.h not needed as it is included in GameScreen.h
 #include "Commons.h"
 #include "CharacterMario.h"
 #include "CharacterLuigi.h"
 #include "CharacterKoopa.h"
+#include "CharacterCoin.h"
 #include "LevelMap.h";
+
 #include <vector>
 
 class Texture2D; //Forward declaration of class
@@ -22,6 +24,7 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 		Character* mario; //Character references
 		Character* luigi;
 		CharacterKoopa* koopa;
+		CharacterCoin* coin;
 		LevelMap* m_level_map;
 		POWBlock* m_pow_block;
 
@@ -33,6 +36,7 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 		float enemyRespawnCounter = 0;
 
 		std::vector<CharacterKoopa*> m_enemies;
+		std::vector<CharacterCoin*> m_coins;
 
 		bool SetUpLevel(); //private function only used by this class
 		void SetLevelMap();
@@ -40,11 +44,15 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 
 		void UpdateEnemies(float deltaTime, SDL_Event e);
 		void CreateKoopa(Vector2D position, FACING direction, float speed);
+
+		void UpdateCoins(float deltaTime, SDL_Event e);
+		void CreateCoin(Vector2D position, FACING direction, float speed);
+
 	public:
 		GameScreenLevel1(SDL_Renderer* renderer);
 		~GameScreenLevel1();
 
-		void Render() override; //override is optional but good practice to understand the code better
+		void Render(float deltaTime) override; //override is optional but good practice to understand the code better
 		void Update(float deltaTime, SDL_Event e) override;
 		void UpdatePOWBlock();
 };

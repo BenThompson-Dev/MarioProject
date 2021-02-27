@@ -22,9 +22,10 @@ GameScreenLevel1::~GameScreenLevel1()
 	m_pow_block = nullptr;
 
 	m_enemies.clear();
+	m_coins.clear();
 }
 
-void GameScreenLevel1::Render()
+void GameScreenLevel1::Render(float deltaTime)
 {
 	//Draws black background image first
 	m_background_colour->Render(Vector2D(0, 0), SDL_FLIP_NONE);
@@ -35,6 +36,12 @@ void GameScreenLevel1::Render()
 	for (int i = 0; i < m_enemies.size(); i++)
 	{
 		m_enemies[i]->Render();
+	}
+
+	//Draw the coins
+	for (int i = 0; i < m_coins.size(); i++)
+	{
+		m_coins[i]->Render(deltaTime);
 	}
 
 	//Draw the background
@@ -267,4 +274,14 @@ void GameScreenLevel1::CreateKoopa(Vector2D position, FACING direction, float sp
 {
 	koopa = new CharacterKoopa(m_renderer, "Images/Koopa.png", m_level_map, Vector2D(position.x, position.y), direction, speed);
 	m_enemies.push_back(koopa);
+}
+
+void UpdateCoins(float deltaTime, SDL_Event e)
+{
+
+}
+
+void CreateCoin(Vector2D position, FACING direction, float speed)
+{
+
 }

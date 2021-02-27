@@ -114,9 +114,9 @@ bool InitSDL()
 		g_window = SDL_CreateWindow("Games Engine Creation", //Window name
 			SDL_WINDOWPOS_UNDEFINED, //Screen position X
 			SDL_WINDOWPOS_UNDEFINED, //Screen position Y
-			SCREEN_WIDTH,
-			SCREEN_HEIGHT,
-			SDL_WINDOW_SHOWN);
+			SCREEN_WIDTH, //Window width
+			SCREEN_HEIGHT, //Window height
+			SDL_WINDOW_SHOWN); //Window is visible
 		//Checks if the window got created, pointer will return null
 		if (g_window == nullptr)
 		{
@@ -169,13 +169,13 @@ void CloseSDL()
 	game_screen_manager = nullptr;
 }
 
-void Render()
+void Render(float deltaTime)
 {
 	//Clear the screen
 	SDL_SetRenderDrawColor(g_renderer, 0xFF, 0xFF, 0xFF, 0xFF); //Sets colour for renderer
 	SDL_RenderClear(g_renderer); //Clears window
 	
-	game_screen_manager->Render();
+	game_screen_manager->Render(deltaTime);
 
 	//Update the screen
 	SDL_RenderPresent(g_renderer);
