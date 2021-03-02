@@ -14,6 +14,7 @@
 SDL_Window* g_window = nullptr; //Pointer
 SDL_Renderer* g_renderer = nullptr; //Renderer pointer
 GameScreenManager* game_screen_manager; //GameScreenManager pointer
+Mix_Music* g_music = nullptr;
 
 Uint32 g_old_time; //Delta time reference
 
@@ -25,6 +26,7 @@ bool Update();
 void Render();
 //SDL_Texture* LoadTextureFromFile(std::string path);
 //void FreeTexture();
+void LoadMusic(std::string musicPath);
 
 int main(int argc, char* args[])
 {
@@ -33,6 +35,12 @@ int main(int argc, char* args[])
 		game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
 		//Sets the time
 		g_old_time = SDL_GetTicks();
+
+		LoadMusic("Music/Mario.mp3");
+		if (Mix_PlayingMusic() == 0)
+		{
+			Mix_PlayMusic(g_music, -1);
+		}
 
 		//Flag to check if we wish to quit
 		bool quit = false;
@@ -125,6 +133,19 @@ bool InitSDL()
 			return false;
 		}
 	}
+
+	/*
+	 *
+	 * WHY DOES THE MIXER ONLY WORK HERE
+	 *
+	 */
+	//Initialises the mixer
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		std::cout << "Mixer could not initialise. Error: " << Mix_GetError() << std::endl;
+		return false;
+	}
+
 	//Renderer Setup
 	g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
 	/*Parameters: window associated with renderer, index initilising with flags,
@@ -135,7 +156,7 @@ bool InitSDL()
 		int imageFlags = IMG_INIT_PNG; //Initilisation PNG loading
 		if (!(IMG_Init(imageFlags) & imageFlags)) //Checks if IMG_INIT_PNG is not returned
 		{
-			std::cout << "SDL_Image could not initialise. Error: " << IMG_GetError();
+			std::cout << "SDL_Image could not initialise. Error: " << IMG_GetError() << std::endl;
 			return false;
 		}
 	}
@@ -167,6 +188,10 @@ void CloseSDL()
 	//Destroys the game screen manager
 	delete game_screen_manager;
 	game_screen_manager = nullptr;
+
+	//Clear up music
+	Mix_FreeMusic(g_music);
+	g_music = nullptr;
 }
 
 void Render()
@@ -179,4 +204,16 @@ void Render()
 
 	//Update the screen
 	SDL_RenderPresent(g_renderer);
+}
+
+void LoadMusic(std::string musicPath)
+{
+	//Loads the music from the given file path
+	g_music = Mix_LoadMUS(musicPath.c_str());
+	{
+		if (g_music == nullptr)
+		{
+			std::cout << "Failed to load music. Error: " << Mix_GetError() << std::endl;
+		}
+	}
 }
