@@ -33,8 +33,14 @@ void GameScreenLevel1::Render(float deltaTime)
 	m_background_colour->Render(Vector2D(0, 0), SDL_FLIP_NONE);
 	//Doesn't use m_background_yPos as it is just the background colour, it doesn't need to move with the screen shake
 
-	//Draw the enemies
+	//Draw coins
 	//Drawn before background so they can 'come out' of the pipes
+	for (int i = 0; i < m_coins.size(); i++)
+	{
+		m_coins[i]->Render(deltaTime);
+	}
+
+	//Draw the enemies
 	for (int i = 0; i < m_enemies.size(); i++)
 	{
 		m_enemies[i]->Render();
@@ -47,12 +53,6 @@ void GameScreenLevel1::Render(float deltaTime)
 	mario->Render();
 	luigi->Render();
 	m_pow_block->Render();
-
-	//Draw coins
-	for (int i = 0; i < m_coins.size(); i++)
-	{
-		m_coins[i]->Render(deltaTime);
-	}
 }
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {

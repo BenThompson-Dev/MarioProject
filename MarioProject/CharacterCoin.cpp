@@ -63,6 +63,20 @@ void CharacterCoin::Update(float deltaTime, SDL_Event e)
 {
 	Character::Update(deltaTime, e);
 
+	//Checks to see if coin is at screen boundaries
+	if (m_position.x <= 0 || m_position.x >= SCREEN_WIDTH - 32)
+	{
+		//Checks to make sure they aren't on the lowest row
+		if (m_position.y < 350)
+		{
+			//If true, have coin face opposite direction
+			if (m_facing_direction == FACING_LEFT)
+				m_facing_direction = FACING_RIGHT;
+			else
+				m_facing_direction = FACING_LEFT;
+		}
+	}
+
 	if (m_facing_direction == FACING_LEFT)
 	{
 		m_moving_left = true;
