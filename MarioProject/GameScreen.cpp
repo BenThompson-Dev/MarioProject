@@ -13,6 +13,6 @@ GameScreen::~GameScreen()
 }
 
 //Virtual classes get overriden in deriving classes
-void GameScreen::Render(){}
+void GameScreen::Render(float deltaTime){}
 
 void GameScreen::Update(float deltaTime, SDL_Event e){}

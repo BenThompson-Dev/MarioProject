@@ -16,7 +16,7 @@ class GameScreenManager
 		GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen);
 		~GameScreenManager();
 
-		void Render();
+		void Render(float deltaTime);
 		void Update(float deltaTime, SDL_Event e);
 
 		void ChangeScreen(SCREENS new_screen);

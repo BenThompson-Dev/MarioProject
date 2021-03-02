@@ -175,7 +175,7 @@ void Render()
 	SDL_SetRenderDrawColor(g_renderer, 0xFF, 0xFF, 0xFF, 0xFF); //Sets colour for renderer
 	SDL_RenderClear(g_renderer); //Clears window
 	
-	game_screen_manager->Render();
+	game_screen_manager->Render(g_old_time);
 
 	//Update the screen
 	SDL_RenderPresent(g_renderer);

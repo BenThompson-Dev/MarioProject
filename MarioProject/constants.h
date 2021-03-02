@@ -36,3 +36,17 @@
 #define KOOPA_SPEED 96.0f
 //Koopa respawn time
 #define ENEMY_RESPAWN_TIME 7.5f
+//Koopa score value
+#define SCORE_INCREASE_KOOPA 15
+
+//Coin respawn delay
+#define COIN_RESPAWN_DELAY 3.0f
+//Coin respawn time
+#define COIN_RESPAWN_TIME 7.5f
+//Coin speed
+#define COIN_SPEED 120.0f
+//Coin score value
+#define SCORE_INCREASE_COIN 5
+
+//Animation delay
+#define ANIMATION_DELAY 0.25f
