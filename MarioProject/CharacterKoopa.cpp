@@ -78,6 +78,20 @@ void CharacterKoopa::Update(float deltaTime, SDL_Event e)
 	//Run base class Update
 	Character::Update(deltaTime, e);
 
+	//Checks to see if the koopa is on the boundaries of the screen and needs to be turned around
+	if (m_position.x <= 0 || m_position.x >= SCREEN_WIDTH - 32)
+	{
+		//Checks to make sure that the koopas are not on the lowest part of the screen
+		if (m_position.y < 350)
+		{
+			//If true, have koopa face opposite direction
+			if (m_facing_direction == FACING_LEFT)
+				m_facing_direction = FACING_RIGHT;
+			else
+				m_facing_direction = FACING_LEFT;
+		}
+	}
+
 	if (!m_injured)
 	{
 		//Enemy is not injured so move

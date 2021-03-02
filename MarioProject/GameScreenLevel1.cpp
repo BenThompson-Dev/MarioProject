@@ -8,6 +8,8 @@ GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer
 {
 	m_level_map = nullptr;
 	SetUpLevel();
+
+	coinRespawnCounter = COIN_RESPAWN_DELAY;
 }
 
 GameScreenLevel1::~GameScreenLevel1()
@@ -22,16 +24,23 @@ GameScreenLevel1::~GameScreenLevel1()
 	m_pow_block = nullptr;
 
 	m_enemies.clear();
+	m_coins.clear();
 }
 
-void GameScreenLevel1::Render()
+void GameScreenLevel1::Render(float deltaTime)
 {
 	//Draws black background image first
 	m_background_colour->Render(Vector2D(0, 0), SDL_FLIP_NONE);
 	//Doesn't use m_background_yPos as it is just the background colour, it doesn't need to move with the screen shake
 
-	//Draw the enemies
+	//Draw coins
 	//Drawn before background so they can 'come out' of the pipes
+	for (int i = 0; i < m_coins.size(); i++)
+	{
+		m_coins[i]->Render(deltaTime);
+	}
+
+	//Draw the enemies
 	for (int i = 0; i < m_enemies.size(); i++)
 	{
 		m_enemies[i]->Render();
@@ -64,14 +73,41 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 		}
 	}
 
+	//Check to see if new enemies need to be spawned
+	if (enemyRespawnCounter <= 0)
+	{
+		CreateKoopa(Vector2D(0, 32), FACING_RIGHT, KOOPA_SPEED);
+		CreateKoopa(Vector2D(SCREEN_WIDTH-50, 32), FACING_LEFT, KOOPA_SPEED);
+		//Screen Size - buffer value, stops them from falling onto the below platform
+
+		enemyRespawnCounter = ENEMY_RESPAWN_TIME;
+	}
+	else
+	{
+		enemyRespawnCounter -= deltaTime;
+	}
+
+	//Check to see if new coins need to be spawned
+	if (coinRespawnCounter <= 0)
+	{
+		CreateCoin(Vector2D(0, 32), FACING_RIGHT, COIN_SPEED);
+		CreateCoin(Vector2D(SCREEN_WIDTH - 50, 32), FACING_LEFT, COIN_SPEED);
+		coinRespawnCounter = COIN_RESPAWN_TIME;
+	}
+	else
+	{
+		coinRespawnCounter -= deltaTime;
+	}
+
 	//Update characters
 	mario->Update(deltaTime, e);
 	luigi->Update(deltaTime, e);
 
 	UpdatePOWBlock();
 	UpdateEnemies(deltaTime, e);
+	UpdateCoins(deltaTime, e);
 
-	//Checks for the different collision types
+	/*Checks for the different collision types
 	if (Collisions::Instance()->Circle(mario, luigi))
 	{
 		std::cout << "Circle hit!" << std::endl;
@@ -79,7 +115,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	if (Collisions::Instance()->Box(mario->GetCollisionBox(), luigi->GetCollisionBox()))
 	{
 		std::cout << "Box hit!" << std::endl;
-	}
+	}*/
 }
 
 void GameScreenLevel1::UpdatePOWBlock()
@@ -94,6 +130,19 @@ void GameScreenLevel1::UpdatePOWBlock()
 				DoScreenShake();
 				m_pow_block->TakeHit();
 				mario->CancelJump();
+			}
+		}
+	}
+	//Alternate check to see if Luigi is colliding with the POW Block
+	if (Collisions::Instance()->Box(luigi->GetCollisionBox(), m_pow_block->GetCollisionBox()))
+	{
+		if (m_pow_block->IsAvailable() > 0)
+		{
+			if (luigi->IsJumping())
+			{
+				DoScreenShake();
+				m_pow_block->TakeHit();
+				luigi->CancelJump();
 			}
 		}
 	}
@@ -127,9 +176,6 @@ bool GameScreenLevel1::SetUpLevel()
 	m_pow_block = new POWBlock(m_renderer, m_level_map);
 	m_screenshake = false;
 	m_background_yPos = 0.0f;
-
-	CreateKoopa(Vector2D(150, 32), FACING_RIGHT, KOOPA_SPEED);
-	CreateKoopa(Vector2D(325, 32), FACING_LEFT, KOOPA_SPEED);
 }
 
 void GameScreenLevel1::SetLevelMap()
@@ -172,6 +218,8 @@ void GameScreenLevel1::DoScreenShake()
 
 void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 {
+	//std::cout << m_enemies.size() << std::endl;
+
 	if (!m_enemies.empty())
 	{
 		int enemyIndexToDelete = -1;
@@ -203,10 +251,25 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 					if (m_enemies[i]->GetInjured())
 					{
 						m_enemies[i]->SetAlive(false);
+						playerScore += SCORE_INCREASE_KOOPA;
+						OutputScore();
 					}
 					else
 					{
 						//Kill mario
+					}
+				}
+				else if (Collisions::Instance()->Circle(m_enemies[i], luigi))
+				{
+					if (m_enemies[i]->GetInjured())
+					{
+						m_enemies[i]->SetAlive(false);
+						playerScore += SCORE_INCREASE_KOOPA;
+						OutputScore();
+					}
+					else
+					{
+						//Kill luigi
 					}
 				}
 			}
@@ -230,4 +293,68 @@ void GameScreenLevel1::CreateKoopa(Vector2D position, FACING direction, float sp
 {
 	koopa = new CharacterKoopa(m_renderer, "Images/Koopa.png", m_level_map, Vector2D(position.x, position.y), direction, speed);
 	m_enemies.push_back(koopa);
+}
+
+void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e)
+{
+	//std::cout << m_coins.size() << std::endl;
+
+	if (!m_coins.empty())
+	{
+		int coinIndexToDelete = -1;
+		for (unsigned int i = 0; i < m_coins.size(); i++)
+		{
+			//Check if coin is on bottom row of tiles
+			if (m_coins[i]->GetPosition().y > 300.0f)
+			{
+				//Is coin off screen
+				if (m_coins[i]->GetPosition().x < (float)(-m_coins[i]->GetCollisionBox().width * 0.5f) ||
+					m_coins[i]->GetPosition().x > SCREEN_WIDTH - (float)(m_coins[i]->GetCollisionBox().width * 0.55f))
+				{
+					m_coins[i]->SetAlive(false);
+				}
+			}
+			//Now update
+			m_coins[i]->Update(deltaTime, e);
+			
+			//Check to see if coin collides with player
+			if ((m_coins[i]->GetPosition().y > 300.0f || m_coins[i]->GetPosition().y <= 64.0f) &&
+				(m_coins[i]->GetPosition().x < 64.0f || m_coins[i]->GetPosition().x > SCREEN_WIDTH - 96.0f))
+			{
+				//Ignore collisions if behind pipe
+			}
+			else
+			{
+				//If colliding with mario or luigi
+				if (Collisions::Instance()->Circle(m_coins[i], mario) || Collisions::Instance()->Circle(m_coins[i], luigi))
+				{
+					m_coins[i]->SetAlive(false);
+					playerScore += SCORE_INCREASE_COIN;
+					OutputScore();
+				}
+			}
+
+			//If the coin is no longer active then schedule for deletion
+			if (!m_coins[i]->GetAlive())
+			{
+				coinIndexToDelete = i;
+			}
+		}
+		//Remove dead coins each update
+		if (coinIndexToDelete != -1)
+		{
+			m_coins.erase(m_coins.begin() + coinIndexToDelete);
+		}
+	}
+}
+
+void GameScreenLevel1::CreateCoin(Vector2D position, FACING direction, float speed)
+{
+	coin = new CharacterCoin(m_renderer, "Images/Coin.png", m_level_map, Vector2D(position.x, position.y), direction, speed);
+	m_coins.push_back(coin);
+}
+
+void GameScreenLevel1::OutputScore()
+{
+	std::cout << "Score: " << playerScore << std::endl;
 }

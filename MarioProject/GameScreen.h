@@ -14,7 +14,7 @@ class GameScreen
 		GameScreen(SDL_Renderer* renderer);
 		~GameScreen();
 
-		virtual void Render();
+		virtual void Render(float deltaTime);
 		virtual void Update(float deltaTime, SDL_Event e);
 };
 
