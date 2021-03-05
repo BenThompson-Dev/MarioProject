@@ -2,6 +2,7 @@
 #include "Texture2D.h"
 #include "Collisions.h"
 #include "POWBlock.h"
+#include "PlayerScore.h"
 #include <vector>
 
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer) //Inherits from GameScreen
@@ -22,6 +23,8 @@ GameScreenLevel1::~GameScreenLevel1()
 	luigi = nullptr;
 	delete m_pow_block;
 	m_pow_block = nullptr;
+	delete m_player_score;
+	m_player_score = nullptr;
 
 	m_enemies.clear();
 	m_coins.clear();
@@ -53,6 +56,8 @@ void GameScreenLevel1::Render(float deltaTime)
 	mario->Render();
 	luigi->Render();
 	m_pow_block->Render();
+	//Score rendered above everything else
+	m_player_score->Render();
 }
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {
@@ -176,6 +181,9 @@ bool GameScreenLevel1::SetUpLevel()
 	m_pow_block = new POWBlock(m_renderer, m_level_map);
 	m_screenshake = false;
 	m_background_yPos = 0.0f;
+
+	//Set up score display
+	m_player_score = new PlayerScore(m_renderer);
 }
 
 void GameScreenLevel1::SetLevelMap()
@@ -251,8 +259,7 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 					if (m_enemies[i]->GetInjured())
 					{
 						m_enemies[i]->SetAlive(false);
-						playerScore += SCORE_INCREASE_KOOPA;
-						OutputScore();
+						m_player_score->IncrementScore(SCORE_INCREASE_KOOPA);
 					}
 					else
 					{
@@ -264,8 +271,7 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 					if (m_enemies[i]->GetInjured())
 					{
 						m_enemies[i]->SetAlive(false);
-						playerScore += SCORE_INCREASE_KOOPA;
-						OutputScore();
+						m_player_score->IncrementScore(SCORE_INCREASE_KOOPA);
 					}
 					else
 					{
@@ -329,8 +335,7 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e)
 				if (Collisions::Instance()->Circle(m_coins[i], mario) || Collisions::Instance()->Circle(m_coins[i], luigi))
 				{
 					m_coins[i]->SetAlive(false);
-					playerScore += SCORE_INCREASE_COIN;
-					OutputScore();
+					m_player_score->IncrementScore(SCORE_INCREASE_COIN);
 				}
 			}
 
@@ -352,9 +357,4 @@ void GameScreenLevel1::CreateCoin(Vector2D position, FACING direction, float spe
 {
 	coin = new CharacterCoin(m_renderer, "Images/Coin.png", m_level_map, Vector2D(position.x, position.y), direction, speed);
 	m_coins.push_back(coin);
-}
-
-void GameScreenLevel1::OutputScore()
-{
-	std::cout << "Score: " << playerScore << std::endl;
 }

@@ -1,4 +1,77 @@
-﻿  Source.cpp
-C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(201,30): warning C4244: 'argument': conversion from 'Uint32' to 'float', possible loss of data
-C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(166): warning C4715: 'InitSDL': not all control paths return a value
+﻿  Character.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterCoin.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(9,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(10,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,51): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,73): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,73): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,92): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,92): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(50,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(50,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(50,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(50,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  CharacterKoopa.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(11,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(12,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(52,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(55,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(59,40): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(59,40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(59,58): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(59,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(62,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(62,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(62,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(62,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  CharacterLuigi.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterMario.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Collisions.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameScreenLevel1.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.h(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(41,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(47,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(130,37): warning C4804: '>': unsafe use of type 'bool' in operation
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(144,37): warning C4804: '>': unsafe use of type 'bool' in operation
+  GameScreenManager.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.h(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  LevelMap.cpp
+  POWBlock.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(21,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(22,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(42,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(44,43): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(44,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(44,62): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(44,62): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,90): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,90): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,109): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,109): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  PlayerScore.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(31,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(50,20): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(203,30): warning C4244: 'argument': conversion from 'Uint32' to 'float', possible loss of data
+  TextCharacter.cpp
+  Generating Code...
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(168): warning C4715: 'InitSDL': not all control paths return a value
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(187): warning C4715: 'GameScreenLevel1::SetUpLevel': not all control paths return a value
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe

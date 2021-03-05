@@ -33,7 +33,7 @@ bool Texture2D::LoadFromFile(std::string path)
 		m_texture = SDL_CreateTextureFromSurface(m_renderer, p_surface);
 		if (m_texture == nullptr) //If texture isnt created properly
 		{
-			std::cout << "Unable to create texture from surface. Error: " << SDL_GetError();
+			std::cout << "Unable to create texture from surface. Error: " << SDL_GetError() << std::endl;
 		}
 		else
 		{
