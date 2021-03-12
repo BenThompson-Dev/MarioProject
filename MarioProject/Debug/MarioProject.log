@@ -66,8 +66,8 @@ C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,90): warni
 C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,109): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
 C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,109): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   PlayerScore.cpp
-C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(31,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(50,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(38,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(57,20): warning C4018: '<': signed/unsigned mismatch
   Source.cpp
 C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(203,30): warning C4244: 'argument': conversion from 'Uint32' to 'float', possible loss of data
   TextCharacter.cpp

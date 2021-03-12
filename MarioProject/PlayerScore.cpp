@@ -10,12 +10,19 @@ PlayerScore::PlayerScore(SDL_Renderer* renderer)
 	m_position = Vector2D(260.0f, 16.0f);
 
 	//Initialises numbers array
-	for (int i = 0; i < SCORE_CHAR_AMOUNT; i++)
+	character1 = new TextCharacter(renderer, "Images/FontNumbers.png", Vector2D((m_position.x), m_position.y));
+	m_numbers.push_back(character1);
+	character2 = new TextCharacter(renderer, "Images/FontNumbers.png", Vector2D((m_position.x - (FONT_WIDTH * 1)), m_position.y));
+	m_numbers.push_back(character2);
+	character3 = new TextCharacter(renderer, "Images/FontNumbers.png", Vector2D((m_position.x - (FONT_WIDTH * 2)), m_position.y));
+	m_numbers.push_back(character3);
+
+	/*for (int i = 0; i < SCORE_CHAR_AMOUNT; i++)
 	{
 		//																(top-left of final digit - width of digits * position in number)
 		character = new TextCharacter(renderer, "Images/FontNumbers.png", Vector2D((m_position.x - (FONT_WIDTH * i)), m_position.y));
 	}
-	m_numbers.push_back(character);
+	m_numbers.push_back(character);*/
 } 
 
 PlayerScore::~PlayerScore()
