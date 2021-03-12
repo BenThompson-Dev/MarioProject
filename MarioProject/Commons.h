@@ -48,3 +48,10 @@ enum FACING //Controls direction the character is facing
 	FACING_LEFT,
 	FACING_RIGHT
 };
+
+enum SOUNDFX //Holds the different sound effects
+{
+	JUMP,
+	COIN,
+	HIT
+};

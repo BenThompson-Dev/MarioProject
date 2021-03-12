@@ -123,9 +123,9 @@ void Character::AddGravity(float deltaTime)
 
 void Character::Jump(float deltaTime)
 {
+	m_can_jump = false;
 	m_jump_force = INITIAL_JUMP_FORCE;
 	m_jumping = true;
-	m_can_jump = false;
 }
 
 float Character::GetCollisionRadius()

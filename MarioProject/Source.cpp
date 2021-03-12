@@ -167,6 +167,7 @@ void CloseSDL()
 	//Quit SDL systems
 	IMG_Quit();
 	SDL_Quit();
+	Mix_Quit();
 
 	//Release the renderer
 	SDL_DestroyRenderer(g_renderer);

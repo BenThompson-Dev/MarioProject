@@ -179,9 +179,9 @@ bool GameScreenLevel1::SetUpLevel()
 	SetLevelMap();
 
 	//Set up mario character
-	mario = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map);
+	mario = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map, m_audio_manager);
 	//Set up luigi character
-	luigi = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(406, 330), m_level_map);
+	luigi = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(406, 330), m_level_map, m_audio_manager);
 
 	//Set up pow block
 	m_pow_block = new POWBlock(m_renderer, m_level_map);
@@ -266,6 +266,7 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 					{
 						m_enemies[i]->SetAlive(false);
 						m_player_score->IncrementScore(SCORE_INCREASE_KOOPA);
+						m_audio_manager->PlaySound(HIT);
 					}
 					else
 					{
@@ -278,6 +279,7 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 					{
 						m_enemies[i]->SetAlive(false);
 						m_player_score->IncrementScore(SCORE_INCREASE_KOOPA);
+						m_audio_manager->PlaySound(HIT);
 					}
 					else
 					{
@@ -342,6 +344,7 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e)
 				{
 					m_coins[i]->SetAlive(false);
 					m_player_score->IncrementScore(SCORE_INCREASE_COIN);
+					m_audio_manager->PlaySound(COIN);
 				}
 			}
 
