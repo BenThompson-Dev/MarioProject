@@ -1,4 +1,7 @@
 ﻿  PlayerScore.cpp
-C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(37,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(48,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(203,30): warning C4244: 'argument': conversion from 'Uint32' to 'float', possible loss of data
+  Generating Code...
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(168): warning C4715: 'InitSDL': not all control paths return a value
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe

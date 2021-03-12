@@ -36,7 +36,7 @@ int main(int argc, char* args[])
 		//Sets the time
 		g_old_time = SDL_GetTicks();
 
-		LoadMusic("Music/Mario.mp3");
+		LoadMusic("Music/SMBUnderground.mp3");
 		if (Mix_PlayingMusic() == 0)
 		{
 			Mix_PlayMusic(g_music, -1);
