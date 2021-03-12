@@ -1,7 +1,12 @@
-﻿  PlayerScore.cpp
-C:\Users\bltho\source\repos\MarioProject\MarioProject\PlayerScore.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
-  Source.cpp
-C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(203,30): warning C4244: 'argument': conversion from 'Uint32' to 'float', possible loss of data
+﻿  AudioManager.cpp
+  GameScreenLevel1.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.h(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(44,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(50,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(133,37): warning C4804: '>': unsafe use of type 'bool' in operation
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(147,37): warning C4804: '>': unsafe use of type 'bool' in operation
   Generating Code...
-C:\Users\bltho\source\repos\MarioProject\MarioProject\Source.cpp(168): warning C4715: 'InitSDL': not all control paths return a value
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(193): warning C4715: 'GameScreenLevel1::SetUpLevel': not all control paths return a value
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe

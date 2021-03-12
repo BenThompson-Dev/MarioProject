@@ -15,6 +15,7 @@
 class Texture2D; //Forward declaration of class
 class POWBlock;
 class PlayerScore;
+class AudioManager;
 
 class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 {
@@ -29,6 +30,7 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 		POWBlock* m_pow_block;
 
 		PlayerScore* m_player_score;
+		AudioManager* m_audio_manager;
 
 		bool m_screenshake;
 		float m_shake_time;

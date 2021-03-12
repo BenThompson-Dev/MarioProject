@@ -13,11 +13,7 @@ class PlayerScore
 private:
 	Vector2D m_position;
 	TextCharacter* character;
-	TextCharacter* character1;
-	TextCharacter* character2;
-	TextCharacter* character3;
-
-	std::vector<TextCharacter*> m_numbers; //Vector holds each value in the 
+	std::vector<TextCharacter*> m_numbers; //Vector holds each number in the score display
 
 	int score = 0;
 	int separatedScore[3];

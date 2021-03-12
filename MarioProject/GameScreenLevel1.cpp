@@ -3,6 +3,7 @@
 #include "Collisions.h"
 #include "POWBlock.h"
 #include "PlayerScore.h"
+#include "AudioManager.h"
 #include <vector>
 
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer) //Inherits from GameScreen
@@ -25,6 +26,8 @@ GameScreenLevel1::~GameScreenLevel1()
 	m_pow_block = nullptr;
 	delete m_player_score;
 	m_player_score = nullptr;
+	delete m_audio_manager;
+	m_audio_manager = nullptr;
 
 	m_enemies.clear();
 	m_coins.clear();
@@ -155,6 +158,9 @@ void GameScreenLevel1::UpdatePOWBlock()
 
 bool GameScreenLevel1::SetUpLevel()
 {
+	//Creates new audio manager for level, loads and begins to play music
+	m_audio_manager = new AudioManager("Audio/MUS_SMBUnderground.mp3");
+
 	m_background_colour = new Texture2D(m_renderer);
 	if (!m_background_colour->LoadFromFile("Images/Black.png"))
 	{

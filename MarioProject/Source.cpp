@@ -14,7 +14,6 @@
 SDL_Window* g_window = nullptr; //Pointer
 SDL_Renderer* g_renderer = nullptr; //Renderer pointer
 GameScreenManager* game_screen_manager; //GameScreenManager pointer
-Mix_Music* g_music = nullptr;
 
 Uint32 g_old_time; //Delta time reference
 
@@ -26,7 +25,6 @@ bool Update();
 void Render();
 //SDL_Texture* LoadTextureFromFile(std::string path);
 //void FreeTexture();
-void LoadMusic(std::string musicPath);
 
 int main(int argc, char* args[])
 {
@@ -35,12 +33,6 @@ int main(int argc, char* args[])
 		game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
 		//Sets the time
 		g_old_time = SDL_GetTicks();
-
-		LoadMusic("Music/SMBUnderground.mp3");
-		if (Mix_PlayingMusic() == 0)
-		{
-			Mix_PlayMusic(g_music, -1);
-		}
 
 		//Flag to check if we wish to quit
 		bool quit = false;
@@ -188,10 +180,6 @@ void CloseSDL()
 	//Destroys the game screen manager
 	delete game_screen_manager;
 	game_screen_manager = nullptr;
-
-	//Clear up music
-	Mix_FreeMusic(g_music);
-	g_music = nullptr;
 }
 
 void Render()
@@ -204,16 +192,4 @@ void Render()
 
 	//Update the screen
 	SDL_RenderPresent(g_renderer);
-}
-
-void LoadMusic(std::string musicPath)
-{
-	//Loads the music from the given file path
-	g_music = Mix_LoadMUS(musicPath.c_str());
-	{
-		if (g_music == nullptr)
-		{
-			std::cout << "Failed to load music. Error: " << Mix_GetError() << std::endl;
-		}
-	}
 }
