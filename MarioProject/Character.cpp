@@ -109,8 +109,8 @@ void Character::MoveRight(float deltaTime)
 
 void Character::AddGravity(float deltaTime)
 {
-	//Mario sprite height
-	if (m_position.y + CHARACTER_SIZE <= SCREEN_HEIGHT)
+	//Checks to make sure the character is above the lowest layer
+	if (m_position.y + TILE_HEIGHT <= SCREEN_HEIGHT)
 	{
 		m_position.y += deltaTime * GRAVITY;
 	}
