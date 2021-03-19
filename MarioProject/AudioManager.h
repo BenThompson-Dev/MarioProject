@@ -19,7 +19,9 @@ private:
 	Mix_Chunk* sfx_hit = nullptr;
 
 	std::string m_music_path;
-	//Sound effect references
+
+	//Used to disable music so it doesn't get annoying when testing
+	bool musicPlay = false;
 
 	void LoadMusic();
 	void LoadSounds();

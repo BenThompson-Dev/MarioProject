@@ -8,9 +8,13 @@ AudioManager::AudioManager(std::string musicPath)
 	//Loads background music
 	LoadMusic();
 	LoadSounds();
-	if (Mix_PlayingMusic() == 0)
+	//Plays background music
+	if (musicPlay)
 	{
-		Mix_PlayMusic(m_music, -1);
+		if (Mix_PlayingMusic() == 0)
+		{
+			Mix_PlayMusic(m_music, -1);
+		}
 	}
 }
 
