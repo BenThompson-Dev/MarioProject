@@ -1,23 +1,67 @@
 #include "LevelMap.h"
+#include <iostream>
 
 /*
  * when making a map, remember:
  * 0 = empty space, 1 = blocked/occupied space
  */
 
-LevelMap::LevelMap(int map[MAP_HEIGHT][MAP_WIDTH])
+LevelMap::LevelMap(int levelID)
 {
-	//Allocate memory for the level map
-	m_map = new int* [MAP_HEIGHT];
-	for (unsigned int i = 0; i < MAP_HEIGHT; i++)
+	//Picks out correct level map based on ID
+	switch (levelID)
 	{
-		m_map[i] = new int[MAP_WIDTH];
+	case 1:
+		//Map initialisation
+		int map[LEVEL1_MAP_HEIGHT][LEVEL1_MAP_WIDTH] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0 },
+														 {1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0 },
+														 {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 } };
+		levelHeight = LEVEL1_MAP_HEIGHT;
+		levelWidth = LEVEL1_MAP_WIDTH;
+		break;
+	case 2:
+		int map[LEVEL2_MAP_HEIGHT][LEVEL2_MAP_WIDTH] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0 },
+														 {1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0 },
+														 {1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+														 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+														 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+														 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 } };
+		levelHeight = LEVEL2_MAP_HEIGHT;
+		levelWidth = LEVEL2_MAP_WIDTH;
+		break;
+	default:;
+	}
+
+	//Allocate memory for the level map
+	m_map = new int* [levelHeight];
+	for (unsigned int i = 0; i < levelHeight; i++)
+	{
+		m_map[i] = new int[levelWidth];
 	}
 
 	//Populate the array
-	for (unsigned int i = 0; i < MAP_HEIGHT; i++)
+	for (unsigned int i = 0; i < levelHeight; i++)
 	{
-		for (unsigned int j = 0; j < MAP_WIDTH; j++)
+		for (unsigned int j = 0; j < levelWidth; j++)
 		{
 			m_map[i][j] = map[i][j];
 		}
@@ -27,7 +71,7 @@ LevelMap::LevelMap(int map[MAP_HEIGHT][MAP_WIDTH])
 LevelMap::~LevelMap()
 {
 	//Deletes all elements of the array
-	for (unsigned int i = 0; i < MAP_HEIGHT; i++)
+	for (unsigned int i = 0; i < levelHeight; i++)
 	{
 		delete[] m_map[i];
 	}
@@ -36,7 +80,7 @@ LevelMap::~LevelMap()
 
 int LevelMap::GetTileAt(unsigned int h, unsigned int w)
 {
-	if (h < MAP_HEIGHT && w < MAP_WIDTH)
+	if (h < levelHeight && w < levelWidth)
 	{
 		return m_map[h][w];
 	}

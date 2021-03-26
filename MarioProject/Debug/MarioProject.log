@@ -1,4 +1,110 @@
 ﻿  Character.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
 C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe
+  CharacterCoin.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(9,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(10,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,51): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,73): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,73): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,92): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(48,92): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(50,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(50,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(50,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterCoin.cpp(50,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  CharacterKoopa.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(11,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(12,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(52,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(55,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(59,40): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(59,40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(59,58): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(59,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(62,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(62,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(62,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\CharacterKoopa.cpp(62,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  CharacterLuigi.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterMario.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Collisions.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameScreenLevel1.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.h(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(44,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(50,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(133,37): warning C4804: '>': unsafe use of type 'bool' in operation
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(147,37): warning C4804: '>': unsafe use of type 'bool' in operation
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(218,33): error C2664: 'LevelMap::LevelMap(const LevelMap &)': cannot convert argument 1 from 'int [13][16]' to 'int [][1]'
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.cpp(218,29): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,2): message : see declaration of 'LevelMap::LevelMap'
+  GameScreenLevel2.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel2.cpp(73,33): error C2664: 'LevelMap::LevelMap(const LevelMap &)': cannot convert argument 1 from 'int [13][16]' to 'int [][1]'
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel2.cpp(73,29): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,2): message : see declaration of 'LevelMap::LevelMap'
+  GameScreenManager.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\GameScreenLevel1.h(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  LevelMap.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(8,28): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(8,40): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(11,20): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(12,31): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(14,22): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(18,31): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(20,32): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(30,31): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(39,10): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.cpp(39,28): error C2065: 'MAP_WIDTH': undeclared identifier
+  POWBlock.cpp
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,19): error C2065: 'MAP_HEIGHT': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\LevelMap.h(10,31): error C2065: 'MAP_WIDTH': undeclared identifier
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(21,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(22,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(42,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(44,43): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(44,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(44,62): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(44,62): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,90): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,90): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,109): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\bltho\source\repos\MarioProject\MarioProject\POWBlock.cpp(46,109): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  TextCharacter.cpp
+  Generating Code...

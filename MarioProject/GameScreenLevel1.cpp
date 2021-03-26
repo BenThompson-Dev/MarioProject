@@ -194,28 +194,13 @@ bool GameScreenLevel1::SetUpLevel()
 
 void GameScreenLevel1::SetLevelMap()
 {
-	//Level initialisation
-	int map[MAP_HEIGHT][MAP_WIDTH] = {  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-										{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-										{1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1 },
-										{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-										{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-										{0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0 },
-										{1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1 },
-										{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-										{0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0 },
-										{1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1 },
-										{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-										{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-										{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 } };
-
 	//Clear any old maps
 	if (m_level_map != nullptr)
 	{
 		delete m_level_map;
 	}
 	//Sets the new map
-	m_level_map = new LevelMap(map);
+	m_level_map = new LevelMap(1);
 }
 
 void GameScreenLevel1::DoScreenShake()
