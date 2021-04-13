@@ -7,7 +7,7 @@
 class LevelMap
 {
 public:
-	LevelMap(int map[MAP_HEIGHT][MAP_WIDTH]);
+	LevelMap(int map[LEVEL1_MAP_HEIGHT][LEVEL1_MAP_WIDTH]);
 	~LevelMap();
 
 	int GetTileAt(unsigned int h, unsigned int w);

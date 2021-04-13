@@ -4,8 +4,12 @@
 #define SCREEN_HEIGHT 416
 
 //Map Width and Height
-#define MAP_WIDTH 16
-#define MAP_HEIGHT 13
+#define LEVEL1_MAP_WIDTH 16
+#define LEVEL1_MAP_HEIGHT 13
+
+//Level 2 map width and height
+#define LEVEL2_MAP_WIDTH 18
+#define LEVEL2_MAP_HEIGHT 15
 
 //Tile Size
 #define TILE_WIDTH 32
