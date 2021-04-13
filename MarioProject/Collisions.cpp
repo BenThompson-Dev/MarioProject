@@ -25,6 +25,7 @@ Collisions* Collisions::Instance()
 	return m_instance;
 }
 
+//Circle collision calculation
 bool Collisions::Circle(Character* character1, Character* character2)
 {
 	//Calculates the vector between the two objecets
@@ -37,7 +38,7 @@ bool Collisions::Circle(Character* character1, Character* character2)
 	return distance < combined_distance;
 }
 
-
+//Box collision calculation
 bool Collisions::Box(Rect2D rect1, Rect2D rect2)
 {
 	//Checking if the boxes overlap with each other
