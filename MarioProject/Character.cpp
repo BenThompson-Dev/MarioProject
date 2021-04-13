@@ -64,8 +64,11 @@ void Character::Update(float deltaTime, SDL_Event e)
 	}
 	else
 	{
-		//Collided with ground, so player can jump again
-		m_can_jump = true;
+		if (!m_jumping)
+		{
+			//Collided with ground, so player can jump again
+			m_can_jump = true;
+		}
 	}
 
 	//Left/right movement check
