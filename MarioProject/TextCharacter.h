@@ -15,6 +15,8 @@ private:
 	Vector2D m_position;
 	std::string m_image;
 
+	int displayPosition; //Holds position to render from in character image
+
 	Texture2D* m_texture;
 
 	int m_single_sprite_w;

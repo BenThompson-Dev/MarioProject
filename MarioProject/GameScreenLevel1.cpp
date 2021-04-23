@@ -18,6 +18,8 @@ GameScreenLevel1::~GameScreenLevel1()
 {
 	delete m_background_texture;
 	m_background_texture = nullptr;
+	delete m_background_colour;
+	m_background_colour = nullptr;
 	delete mario;
 	mario = nullptr;
 	delete luigi;

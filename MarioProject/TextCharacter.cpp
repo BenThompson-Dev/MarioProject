@@ -34,5 +34,18 @@ void TextCharacter::Render(int displayChar)
 
 void TextCharacter::Render(char displayChar)
 {
+	displayChar = toupper(displayChar); //Sets display character to upper case
+	//Finds ASCII value for character
+	int ASCIIref = (int)displayChar;
+	if (ASCIIref == 32) //Space character
+		ASCIIref = 26; //Sets to final character
+	else
+	{
+		ASCIIref = ASCIIref - 65; //All other characters are in alphabetical order (A = 65)
+	}
 
+	//Starts rendering characters
+	SDL_Rect portion_of_sprite = { (m_single_sprite_w * displayChar), 0, m_single_sprite_w, m_single_sprite_h };
+	SDL_Rect destRect = { (int)(m_position.x), (int)(m_position.y), m_single_sprite_w, m_single_sprite_h };
+	m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);
 }

@@ -17,7 +17,7 @@ class POWBlock;
 class PlayerScore;
 class AudioManager;
 
-class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
+class GameScreenLevel1 : public GameScreen // Inherits from class type GameScreen
 {
 	private:
 		Texture2D* m_background_texture; //Reference to Texture2D, can be used because of forward declaration
