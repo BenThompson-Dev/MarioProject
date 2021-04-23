@@ -1,4 +1,6 @@
-﻿  Character.cpp
+﻿  AudioManager.cpp
+  Character.cpp
 C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\bltho\source\repos\MarioProject\MarioProject\Character.h(53,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   MarioProject.vcxproj -> C:\Users\bltho\source\repos\MarioProject\Debug\MarioProject.exe

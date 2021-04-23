@@ -21,7 +21,7 @@ private:
 	std::string m_music_path;
 
 	//Used to disable music so it doesn't get annoying when testing
-	bool musicPlay = false;
+	bool musicPlay = true;
 
 	void LoadMusic();
 	void LoadSounds();

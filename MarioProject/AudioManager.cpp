@@ -67,7 +67,7 @@ void AudioManager::PlaySound(SOUNDFX soundType)
 	switch (soundType)
 	{
 	case JUMP:
-		//		No specified channel, sound chunk, loop amount
+		//No specified channel, sound chunk, loop amount
 		Mix_PlayChannel(-1, sfx_jump, 0);
 		break;
 	case COIN:
