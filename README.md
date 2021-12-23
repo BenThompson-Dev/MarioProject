@@ -1,2 +1,2 @@
-# MarioProject
- Semester2
+# Mario Bros. Project
+Games Engine Creation Semester 2
