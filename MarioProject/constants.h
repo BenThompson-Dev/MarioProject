@@ -50,3 +50,10 @@
 
 //Animation delay
 #define ANIMATION_DELAY 0.25f
+
+//Font sprite size
+#define FONT_WIDTH 16
+#define FONT_HEIGHT 16
+
+//Max amount of digits on score display
+#define SCORE_CHAR_AMOUNT 3

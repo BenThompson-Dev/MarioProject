@@ -2,6 +2,8 @@
 #include "Texture2D.h"
 #include "Collisions.h"
 #include "POWBlock.h"
+#include "PlayerScore.h"
+#include "AudioManager.h"
 #include <vector>
 
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer) //Inherits from GameScreen
@@ -22,6 +24,10 @@ GameScreenLevel1::~GameScreenLevel1()
 	luigi = nullptr;
 	delete m_pow_block;
 	m_pow_block = nullptr;
+	delete m_player_score;
+	m_player_score = nullptr;
+	delete m_audio_manager;
+	m_audio_manager = nullptr;
 
 	m_enemies.clear();
 	m_coins.clear();
@@ -53,6 +59,8 @@ void GameScreenLevel1::Render(float deltaTime)
 	mario->Render();
 	luigi->Render();
 	m_pow_block->Render();
+	//Score rendered above everything else
+	m_player_score->Render();
 }
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {
@@ -150,6 +158,9 @@ void GameScreenLevel1::UpdatePOWBlock()
 
 bool GameScreenLevel1::SetUpLevel()
 {
+	//Creates new audio manager for level, loads and begins to play music
+	m_audio_manager = new AudioManager("Audio/MUS_SMBUnderground.mp3");
+
 	m_background_colour = new Texture2D(m_renderer);
 	if (!m_background_colour->LoadFromFile("Images/Black.png"))
 	{
@@ -168,14 +179,17 @@ bool GameScreenLevel1::SetUpLevel()
 	SetLevelMap();
 
 	//Set up mario character
-	mario = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map);
+	mario = new CharacterMario(m_renderer, "Images/Mario.png", Vector2D(64, 330), m_level_map, m_audio_manager);
 	//Set up luigi character
-	luigi = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(406, 330), m_level_map);
+	luigi = new CharacterLuigi(m_renderer, "Images/Luigi.png", Vector2D(406, 330), m_level_map, m_audio_manager);
 
 	//Set up pow block
 	m_pow_block = new POWBlock(m_renderer, m_level_map);
 	m_screenshake = false;
 	m_background_yPos = 0.0f;
+
+	//Set up score display
+	m_player_score = new PlayerScore(m_renderer);
 }
 
 void GameScreenLevel1::SetLevelMap()
@@ -251,8 +265,8 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 					if (m_enemies[i]->GetInjured())
 					{
 						m_enemies[i]->SetAlive(false);
-						playerScore += SCORE_INCREASE_KOOPA;
-						OutputScore();
+						m_player_score->IncrementScore(SCORE_INCREASE_KOOPA);
+						m_audio_manager->PlaySound(HIT);
 					}
 					else
 					{
@@ -264,8 +278,8 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 					if (m_enemies[i]->GetInjured())
 					{
 						m_enemies[i]->SetAlive(false);
-						playerScore += SCORE_INCREASE_KOOPA;
-						OutputScore();
+						m_player_score->IncrementScore(SCORE_INCREASE_KOOPA);
+						m_audio_manager->PlaySound(HIT);
 					}
 					else
 					{
@@ -329,8 +343,8 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e)
 				if (Collisions::Instance()->Circle(m_coins[i], mario) || Collisions::Instance()->Circle(m_coins[i], luigi))
 				{
 					m_coins[i]->SetAlive(false);
-					playerScore += SCORE_INCREASE_COIN;
-					OutputScore();
+					m_player_score->IncrementScore(SCORE_INCREASE_COIN);
+					m_audio_manager->PlaySound(COIN);
 				}
 			}
 
@@ -352,9 +366,4 @@ void GameScreenLevel1::CreateCoin(Vector2D position, FACING direction, float spe
 {
 	coin = new CharacterCoin(m_renderer, "Images/Coin.png", m_level_map, Vector2D(position.x, position.y), direction, speed);
 	m_coins.push_back(coin);
-}
-
-void GameScreenLevel1::OutputScore()
-{
-	std::cout << "Score: " << playerScore << std::endl;
 }

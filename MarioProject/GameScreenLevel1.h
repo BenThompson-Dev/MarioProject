@@ -14,6 +14,8 @@
 
 class Texture2D; //Forward declaration of class
 class POWBlock;
+class PlayerScore;
+class AudioManager;
 
 class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 {
@@ -27,6 +29,9 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 		LevelMap* m_level_map;
 		POWBlock* m_pow_block;
 
+		PlayerScore* m_player_score;
+		AudioManager* m_audio_manager;
+
 		bool m_screenshake;
 		float m_shake_time;
 		float m_wobble;
@@ -35,15 +40,12 @@ class GameScreenLevel1 : GameScreen // Inherits from class type GameScreen
 		float enemyRespawnCounter = 0;
 		float coinRespawnCounter;
 
-		int playerScore = 0;
-
 		std::vector<CharacterKoopa*> m_enemies;
 		std::vector<CharacterCoin*> m_coins;
 
 		bool SetUpLevel(); //private function only used by this class
 		void SetLevelMap();
 		void DoScreenShake();
-		void OutputScore();
 
 		void UpdateEnemies(float deltaTime, SDL_Event e);
 		void CreateKoopa(Vector2D position, FACING direction, float speed);

@@ -64,8 +64,11 @@ void Character::Update(float deltaTime, SDL_Event e)
 	}
 	else
 	{
-		//Collided with ground, so player can jump again
-		m_can_jump = true;
+		if (!m_jumping)
+		{
+			//Collided with ground, so player can jump again
+			m_can_jump = true;
+		}
 	}
 
 	//Left/right movement check
@@ -109,8 +112,8 @@ void Character::MoveRight(float deltaTime)
 
 void Character::AddGravity(float deltaTime)
 {
-	//Mario sprite height
-	if (m_position.y + CHARACTER_SIZE <= SCREEN_HEIGHT)
+	//Checks to make sure the character is above the lowest layer
+	if (m_position.y + TILE_HEIGHT <= SCREEN_HEIGHT)
 	{
 		m_position.y += deltaTime * GRAVITY;
 	}
@@ -123,9 +126,9 @@ void Character::AddGravity(float deltaTime)
 
 void Character::Jump(float deltaTime)
 {
+	m_can_jump = false;
 	m_jump_force = INITIAL_JUMP_FORCE;
 	m_jumping = true;
-	m_can_jump = false;
 }
 
 float Character::GetCollisionRadius()

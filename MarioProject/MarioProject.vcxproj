@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterCoin.cpp" />
     <ClCompile Include="CharacterKoopa.cpp" />
@@ -151,8 +152,10 @@
     <ClCompile Include="GameScreenLevel1.cpp" />
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="LevelMap.cpp" />
+    <ClCompile Include="PlayerScore.cpp" />
     <ClCompile Include="POWBlock.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TextCharacter.cpp" />
     <ClCompile Include="Texture2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +165,7 @@
     <Library Include="SDL2\SDL\SDL2_mixer.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterCoin.h" />
     <ClInclude Include="CharacterKoopa.h" />
@@ -174,7 +178,9 @@
     <ClInclude Include="GameScreenLevel1.h" />
     <ClInclude Include="GameScreenManager.h" />
     <ClInclude Include="LevelMap.h" />
+    <ClInclude Include="PlayerScore.h" />
     <ClInclude Include="POWBlock.h" />
+    <ClInclude Include="TextCharacter.h" />
     <ClInclude Include="Texture2D.h" />
   </ItemGroup>
   <ItemGroup>

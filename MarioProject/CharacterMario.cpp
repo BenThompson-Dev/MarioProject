@@ -1,6 +1,9 @@
 #include "CharacterMario.h"
 
-CharacterMario::CharacterMario(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map) : Character(renderer, imagePath, start_position, map) {}
+CharacterMario::CharacterMario(SDL_Renderer* renderer, std::string imagePath, Vector2D start_position, LevelMap* map, AudioManager* audio_manager) : Character(renderer, imagePath, start_position, map)
+{
+	m_audio_manager = audio_manager;
+}
 
 void CharacterMario::Update(float deltaTime, SDL_Event e)
 {
@@ -19,6 +22,7 @@ void CharacterMario::Update(float deltaTime, SDL_Event e)
 			if (m_can_jump)
 			{
 				Jump(deltaTime);
+				m_audio_manager->PlaySound(JUMP);
 			}
 			break;
 		}
